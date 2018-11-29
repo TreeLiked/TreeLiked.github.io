@@ -1,3 +1,4 @@
+<script src="/js/md5.js"/>
 var Home = location.href,
     Pages = 4,
     xhr,
@@ -472,7 +473,7 @@ $(function() {
                   repo: comment.data('r'),
                   owner: comment.data('o'),
                   admin: comment.data('a'),
-                  id: md5(location.pathname),
+                  id: decodeURI(window.location.pathname),
                   distractionFreeMode: comment.data('d')
                 })
                 $(".comment").removeClass("link")
