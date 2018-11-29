@@ -1,4 +1,3 @@
-<script src="/js/md5.js"/>
 var Home = location.href,
     Pages = 4,
     xhr,
