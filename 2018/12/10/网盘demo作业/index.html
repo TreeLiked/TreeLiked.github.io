@@ -27,7 +27,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">js循环中使用定时器的问题</h3>
+    <h3 class="subtitle">网盘demo</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -44,19 +44,81 @@
     <div class="section">
         <div class="article">
     <div class="main">
-        <h1 class="title">js循环中使用定时器的问题</h1>
+        <h1 class="title">网盘demo</h1>
         <div class="stuff">
-            <span>十一月 26, 2018</span>
+            <span>十二月 10, 2018</span>
             
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/TreeLiked.github.io/tags/javascript/">javascript</a></li></ul>
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/TreeLiked.github.io/tags/java/">java</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/TreeLiked.github.io/tags/springboot/">springboot</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/TreeLiked.github.io/tags/springmvc/">springmvc</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/TreeLiked.github.io/tags/vue-cli/">vue-cli</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <blockquote>
-<p>今天在js循环中中使用setTimeout中踩坑，特意记录一下</p>
+            <h4 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h4><h5 id="课堂上"><a href="#课堂上" class="headerlink" title="课堂上"></a>课堂上</h5><ul>
+<li>使用数据库客户端软件首先设计出数据库表结构</li>
+<li><p>使用mybatis逆向工程生成模型类和mapper，使用一个固定的项目只用来做逆向工程</p>
+</li>
+<li><p>作业中复习了Spring以及SpringBoot相关的知识，例如拦截器，aop等</p>
+</li>
+</ul>
+<h4 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h4><ul>
+<li>想问焦哥，企业中的项目一般是前端驱动，还是后端，还是说一起先需求分析，设计好接口和数据格式，然后并行的进行开发</li>
+</ul>
+<h4 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h4><p> <a href="https://gitee.com/treeliked/netdiskdemo" title="点击前往" target="_blank" rel="noopener">网盘demo作业</a></p>
+<h5 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h5><h6 id="数据库表设计"><a href="#数据库表设计" class="headerlink" title="数据库表设计"></a>数据库表设计</h6><p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fy1gze0hqhj30ow0x2dud.jpg" alt=""></p>
+<h5 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h5><h6 id="本地访问页面"><a href="#本地访问页面" class="headerlink" title="本地访问页面"></a>本地访问页面</h6><blockquote>
+<p>127.0.0.1:8881 <a href="http://127.0.0.1:8881" title="点击前往" target="_blank" rel="noopener">点我访问</a></p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面是一个正确示例，因为Javascript没有块级作用域变量，只有函数作用域</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> rounds) &#123;</span><br><span class="line">   <span class="keyword">let</span> queObj = rounds[key];</span><br><span class="line">   <span class="built_in">console</span>.log(queObj);</span><br><span class="line">   setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       showMessage(queObj.question.question, <span class="literal">true</span>);</span><br><span class="line">       showMessage(queObj.question.answerA, <span class="literal">true</span>);</span><br><span class="line">       showMessage(queObj.question.answerB, <span class="literal">true</span>);</span><br><span class="line">       showMessage(queObj.question.answerC, <span class="literal">true</span>);</span><br><span class="line">       showMessage(queObj.question.answerD, <span class="literal">true</span>);</span><br><span class="line">   &#125;, <span class="number">1000</span> * i);</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面是一个错误示例，i一开始被循环到最后，不再改变，所有定时器的所有obj都是集合中的最后一个，没有发生改变</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; rounds.length; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"11111"</span>);</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        showMessage(rounds[<span class="string">"(i+1).toString() "</span>].question, <span class="literal">true</span>);</span><br><span class="line">    &#125;, <span class="number">5000</span> * (i + <span class="number">1</span>));</span><br><span class="line">    <span class="comment">// showMessage()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h6><ul>
+<li>前端<ul>
+<li>使用vue-cli脚手架工具进行前端开发</li>
+</ul>
+</li>
+<li>后台<ul>
+<li>SpringBoot快速开发</li>
+</ul>
+</li>
+</ul>
+<h6 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h6><ul>
+<li><p>com.treeliked.netdiskdemo.config</p>
+<blockquote>
+<p>全局的配置文件，例如跨域访问，线程池，数据源配置，aop日志打印等</p>
+</blockquote>
+</li>
+<li><p>com.treeliked.netdiskdemo.controller</p>
+<blockquote>
+<p>Spring的控制器类</p>
+</blockquote>
+</li>
+<li><p>com.treeliked.netdiskdemo.interceptor</p>
+<blockquote>
+<p>自定义拦截器</p>
+</blockquote>
+</li>
+<li><p>com.treeliked.netdiskdemo.model</p>
+<blockquote>
+<p>数据模型</p>
+</blockquote>
+</li>
+<li><p>com.treeliked.netdiskdemo.service</p>
+<blockquote>
+<p>服务接口类</p>
+</blockquote>
+<ul>
+<li><p>com.treeliked.netdiskdemo.service.impl</p>
+<blockquote>
+<p>服务接口实现类</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>com.treeliked.netdiskdemo.util</p>
+<blockquote>
+<p>工具类</p>
+</blockquote>
+</li>
+</ul>
+<h6 id="页面截图"><a href="#页面截图" class="headerlink" title="页面截图"></a>页面截图</h6><p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fy1hw3upvvj31g80pw75z.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fy1hwacaocj32kw0o6wjh.jpg" alt=""></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
